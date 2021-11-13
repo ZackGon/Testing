@@ -14,10 +14,10 @@ echo "RUN pip install ipapi" >> tempdir/Dockerfile
 echo "COPY  ./templates /home/myapp/templates/" >> tempdir/Dockerfile
 echo "COPY  ./static /home/myapp/static/" >> tempdir/Dockerfile
 echo "COPY  geoloc.py /home/myapp/" >> tempdir/Dockerfile
-echo "EXPOSE 8080" >> tempdir/Dockerfile
+echo "EXPOSE 5050" >> tempdir/Dockerfile
 echo "CMD python3 /home/myapp/geoloc.py" >> tempdir/Dockerfile
 
 cd tempdir
 docker build -t geolocapp .
-docker run -t -d -p 8080:8080 --name geolocrunning geolocapp
+docker run -t -d -p 5050:5050 --name geolocrunning geolocapp
 docker ps -a
